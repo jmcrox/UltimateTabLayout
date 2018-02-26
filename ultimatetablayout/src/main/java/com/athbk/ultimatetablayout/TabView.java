@@ -59,6 +59,9 @@ public class TabView extends LinearLayout implements View.OnClickListener {
 
     private String tabResourceFont;
 
+    @DrawableRes
+    private int tabBackground;
+
     private int currentPos;
 
     private OnClickTabListener onClickTabListener;
@@ -118,6 +121,10 @@ public class TabView extends LinearLayout implements View.OnClickListener {
             catch (Exception e){
                 e.printStackTrace();
             }
+        }
+
+        if(tabBackground != 0){
+            setBackgroundResource(tabBackground);
         }
 
 
@@ -236,6 +243,10 @@ public class TabView extends LinearLayout implements View.OnClickListener {
 
     public void setTabResourceFont(String tabResourceFont) {
         this.tabResourceFont = tabResourceFont;
+    }
+
+    public void setTabBackground(int tabBackground){
+        this.tabBackground = tabBackground;
     }
 
     public void setOnClickTabListener(OnClickTabListener onClickTabListener) {

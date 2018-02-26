@@ -156,6 +156,7 @@ public class HorizontalSlingTabView extends HorizontalScrollView implements View
                 tabView.setHeight(tabModel.getTabHeight());
                 tabView.setWidth(tabModel.getTabWidth());
                 tabView.setTabResourceFont(tabModel.getTabResourceFont());
+                tabView.setTabBackground(tabModel.getTabBackground());
                 tabView.setCurrentPos(i);
                 tabView.setOnClickTabListener(new OnClickTabListener() {
                     @Override

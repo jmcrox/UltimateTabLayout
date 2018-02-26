@@ -87,26 +87,27 @@ To use this UltimateTabLayout in your layout simply copy and paste the xml below
 
 There are several other attributes that can be used to configure color text, icon, background tab, size.
 
-| Attrrs              |                           |  type   | option                                           |
-| --------------------|:-------------------------:|---------|--------------------------------------------------|
-| tab_style           | style of tab layout       |enum     |sliding or fixed                                  |
-| tab_text_size       | size of text              |float    |                                                  |
-| tab_text_color      | color of text             |reference|                                                  |
-| tab_under_line_show | visible of under line     |boolean  |                                                  |
-| tab_under_line_color| color of under line       |color    |                                                  |
-| tab_width           | width of each tab         |dimension|                                                  |
-| tab_height          | height of each tab        |dimension|                                                  |
-| tab_padding_top     | padding top in tab        |dimension|                                                  |
-| tab_padding_bottom  | padding bottom in tab     |dimension|                                                  |
-| tab_padding_left    | padding left in tab       |dimension|                                                  |
-|tab_padding_righ     | padding right in tab      |dimension|                                                  |
-|tab_width_icon	      | width of icon             |dimension|                                                  |
-|tab_height_icon      | height of icon            |dimension|                                                  |
-|tab_position_icon    | posistion of icon for text|enum     |icon_left or icon_right or icon_top or icon_bottom|
-|tab_padding_icon     | padding icon for text     |dimension|                                                  |
-|tab_orientation      | orientation of each tab   |enum     |vertical or horizontal                            |
-|tab_height_under_line| height of under line 	  |dimension|update version 1.2.3                              |
-|tab_resource_font    | assets from resource' font|string   |update version 1.2.4                              |
+| Attrrs              |                           |  type   | option                                                 |
+| --------------------|:-------------------------:|---------|--------------------------------------------------------|
+| tab_style           | style of tab layout       |enum     |sliding or fixed                                        |
+| tab_text_size       | size of text              |float    |                                                        |
+| tab_text_color      | color of text             |reference|                                                        |
+| tab_under_line_show | visible of under line     |boolean  |                                                        |
+| tab_under_line_color| color of under line       |color    |                                                        |
+| tab_width           | width of each tab         |dimension|                                                        |
+| tab_height          | height of each tab        |dimension|                                                        |
+| tab_padding_top     | padding top in tab        |dimension|                                                        |
+| tab_padding_bottom  | padding bottom in tab     |dimension|                                                        |
+| tab_padding_left    | padding left in tab       |dimension|                                                        |
+|tab_padding_righ     | padding right in tab      |dimension|                                                        |
+|tab_width_icon	      | width of icon             |dimension|                                                        |
+|tab_height_icon      | height of icon            |dimension|                                                        |
+|tab_position_icon    | posistion of icon for text|enum     |icon_left or icon_right or icon_top or icon_bottom      |
+|tab_padding_icon     | padding icon for text     |dimension|                                                        |
+|tab_orientation      | orientation of each tab   |enum     |vertical or horizontal                                  |
+|tab_height_under_line| height of under line 	  |dimension|update version 1.2.3                                    |
+|tab_resource_font    | assets from resource' font|string   |update version 1.2.4                                    |
+|tab_background       | tabs background           |drawable |update version 1.2.6? (see activity_main_with_backgroud)|
 * Tip: only use for style's fixed.
 If you want to auto align, you will tab_width = "0dp" with tab_orientation = "horizontal"
 or tab_height = "0dp" with tab_orientation = "vertical"

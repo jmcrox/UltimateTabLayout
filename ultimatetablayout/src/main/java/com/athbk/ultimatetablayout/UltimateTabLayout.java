@@ -55,6 +55,8 @@ public class UltimateTabLayout extends FrameLayout {
 
     private String tabResourceFont; // update version 1.2.4
 
+    private int tabBackground;
+
     private Paint mPaintUnderLine;
 
     private Context context;
@@ -105,6 +107,8 @@ public class UltimateTabLayout extends FrameLayout {
 
         tabResourceFont = ta.getString(R.styleable.UltimateTabLayout_tab_resource_font);
 
+        tabBackground = ta.getResourceId(R.styleable.UltimateTabLayout_tab_background, 0);
+
         mPaintUnderLine = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaintUnderLine.setColor(tabUnderLineColor);
 
@@ -128,6 +132,7 @@ public class UltimateTabLayout extends FrameLayout {
                 .setTabTextColor(tabTextColor)
                 .setTabTextSize(tabTextSize)
                 .setTabResourceFont(tabResourceFont)
+                .setTabBackground(tabBackground)
                 .build();
 
 
@@ -229,5 +234,9 @@ public class UltimateTabLayout extends FrameLayout {
 
     public void setTabResourceFont(String tabResourceFont) {
         this.tabResourceFont = tabResourceFont;
+    }
+
+    public void setTabBackground(int tabBackground) {
+        this.tabBackground = tabBackground;
     }
 }
