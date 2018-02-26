@@ -80,8 +80,43 @@ public class FixTabView extends LinearLayout implements ViewPager.OnPageChangeLi
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if(tabModel.isTabUnderLineShow()){
+            if(tabModel.getTabOrientation() == UltimateTabLayout.VERTICAL){
+                drawVerticalUnderline(canvas);
+            }else {
+                drawHorizontalUnderline(canvas);
+            }
+        }
+
+    }
+
+    protected void drawVerticalUnderline(Canvas canvas){
+        try{
+            int count = getChildCount();
+
+            View currentChildView = getChildAt(current);
+
+            float top = currentChildView.getTop();
+            float bottom = currentChildView.getBottom();
+            float left = currentChildView.getLeft();
+            float right = currentChildView.getRight();
+            int width = currentChildView.getWidth();
+            int height = currentChildView.getHeight();
+
+            if(positionOffSet > 0 && current < count - 1){
+                final float nextTabTop = top + height;
+                top = positionOffSet * nextTabTop + (1f - positionOffSet) * top;
+                bottom = top + height;
+            }
+
+            canvas.drawRect(left + width - tabModel.getTabHeightUnderLine(), top, left + right, bottom, mPaintUnderLine);
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }
+    }
+
+    protected void drawHorizontalUnderline(Canvas canvas){
         try {
-            if (!tabModel.isTabUnderLineShow() || tabModel.getTabOrientation() == UltimateTabLayout.VERTICAL) return;
             int count = getChildCount();
 
             View currentChildView = getChildAt(current);
@@ -91,7 +126,6 @@ public class FixTabView extends LinearLayout implements ViewPager.OnPageChangeLi
             int width = currentChildView.getWidth();
             int height = currentChildView.getHeight();
 
-//        Log.e("TAG", "Left: " + left + "/right: " + right + "/width: " + width + "/height: " + height);
             if (positionOffSet > 0f && current < count - 1) {
                 final float nextTabLeft = left + width;
                 left = positionOffSet * nextTabLeft + (1f - positionOffSet) * left;
@@ -102,7 +136,6 @@ public class FixTabView extends LinearLayout implements ViewPager.OnPageChangeLi
         } catch (NullPointerException e){
             e.printStackTrace();
         }
-
     }
 
     public void setViewPager(final ViewPager viewPager, IFTabAdapter tabAdapterIF){

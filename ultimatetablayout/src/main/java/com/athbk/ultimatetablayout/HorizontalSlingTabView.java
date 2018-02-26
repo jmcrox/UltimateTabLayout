@@ -108,8 +108,14 @@ public class HorizontalSlingTabView extends HorizontalScrollView implements View
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        if(tabModel.isTabUnderLineShow()){
+            drawHorizontalUnderline(canvas);
+        }
+
+    }
+
+    protected void drawHorizontalUnderline(Canvas canvas){
         try {
-            if (!tabModel.isTabUnderLineShow()) return;
             int count = containerView.getChildCount();
 
             View currentChildView = containerView.getChildAt(current);
@@ -119,7 +125,6 @@ public class HorizontalSlingTabView extends HorizontalScrollView implements View
             int width = currentChildView.getWidth();
             int height = currentChildView.getHeight();
 
-//        Log.e("TAG", "Left: " + left + "/right: " + right + "/width: " + width + "/height: " + height);
             if (positionOffSet > 0f && current < count - 1) {
                 final float nextTabLeft = left + width;
                 left = positionOffSet * nextTabLeft + (1f - positionOffSet) * left;
@@ -130,7 +135,6 @@ public class HorizontalSlingTabView extends HorizontalScrollView implements View
         } catch (NullPointerException e){
             e.printStackTrace();
         }
-
     }
 
     public void setViewPager(final ViewPager viewPager, IFTabAdapter tabAdapterIF){

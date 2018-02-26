@@ -95,29 +95,34 @@ public class VerticalSlingTabView extends ScrollView implements ViewPager.OnPage
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        try {
-            if (!tabModel.isTabUnderLineShow() || tabModel.getTabOrientation() == UltimateTabLayout.VERTICAL) return;
+        if(tabModel.isTabUnderLineShow()){
+            drawVerticalUnderline(canvas);
+        }
+    }
+
+    protected void drawVerticalUnderline(Canvas canvas){
+        try{
             int count = containerView.getChildCount();
 
             View currentChildView = containerView.getChildAt(current);
 
+            float top = currentChildView.getTop();
+            float bottom = currentChildView.getBottom();
             float left = currentChildView.getLeft();
             float right = currentChildView.getRight();
             int width = currentChildView.getWidth();
             int height = currentChildView.getHeight();
 
-//        Log.e("TAG", "Left: " + left + "/right: " + right + "/width: " + width + "/height: " + height);
-            if (positionOffSet > 0f && current < count - 1) {
-                final float nextTabLeft = left + width;
-                left = positionOffSet * nextTabLeft + (1f - positionOffSet) * left;
-                right = left + width;
+            if(positionOffSet > 0 && current < count - 1){
+                final float nextTabTop = top + height;
+                top = positionOffSet * nextTabTop + (1f - positionOffSet) * top;
+                bottom = top + height;
             }
 
-            canvas.drawRect(left, height - tabModel.getTabHeightUnderLine(), right, height, mPaintUnderLine);
-        } catch (NullPointerException e){
+            canvas.drawRect(left + width - tabModel.getTabHeightUnderLine(), top, left + right, bottom, mPaintUnderLine);
+        }catch (NullPointerException e){
             e.printStackTrace();
         }
-
     }
 
     public void setViewPager(final ViewPager viewPager, IFTabAdapter tabAdapterIF){
